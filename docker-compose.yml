@@ -5,7 +5,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    ports:
+    ports: 
       - "3000:3000"
     environment:
       - PORT=3000
@@ -22,6 +22,17 @@ services:
       - "27018:27017" # Map container's 27017 to host's 27018
     volumes:
       - mongo-data:/data/db
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client  # Path to your client app directory (e.g., Vite or React)
+      dockerfile: Dockerfile  # Adjust if your Dockerfile is named differently
+    ports:
+      - "5173:5173"  # Map container's port to host's port for client (Vite)
+    depends_on:
+      - app  # Ensure the server is available before the client starts
     networks:
       - app-network
 
