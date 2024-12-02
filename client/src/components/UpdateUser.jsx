@@ -17,37 +17,49 @@ const UpdateUser = ({ user, setCurrentUser }) => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-semibold mb-4">Update User</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md"
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md"
-          required
-        />
-        <button type="submit" className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600">
-          Update User
-        </button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-400 to-teal-500 p-6">
+      <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-lg">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Update User</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full py-3 text-white bg-green-600 rounded-lg font-medium hover:bg-green-700 shadow-lg transform hover:scale-105 transition-transform duration-200"
+          >
+            Update User
+          </button>
+          <button
+            type="button"
+            onClick={() => setCurrentUser(null)}
+            className="w-full py-3 text-gray-700 bg-gray-200 rounded-lg font-medium hover:bg-gray-300 shadow transform hover:scale-105 transition-transform duration-200"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

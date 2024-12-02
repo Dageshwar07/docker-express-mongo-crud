@@ -11,11 +11,12 @@ const PORT = 3000;
 app.use(cors({ origin: 'http://localhost:5173' }));  // For local development
 
 app.use(bodyParser.json());
-app.use(cors())
 // MongoDB connection
 const MONGO_URI = 'mongodb://mongodb:27017/userdb';
-// const MONGO_URI = 'mongodb://localhost:27017/userdb';
-mongoose.connect(MONGO_URI)
+const MONGO_URL = 'mongodb://localhost:27017/userdb';
+
+const url = MONGO_URI || MONGO_URL
+mongoose.connect(url)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
